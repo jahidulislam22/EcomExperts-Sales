@@ -1,12 +1,11 @@
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, LabelList
+  Line, PieChart, Pie, Cell, AreaChart, Area, LabelList
 } from "recharts";
 
 const G = "#1B5E3B";
 const GM = "#2D7A50";
 const GL = "#EAF4EE";
-const GB = "#0F3D24";
 
 const revenueData = [
   { month: "Month 1", current: 5.26, prior: 2.85 },
@@ -90,10 +89,10 @@ const pixelLayers = [
 ];
 
 const opportunityData = [
-  { label: "A/B testing", value: 366 },
+  { label: "A/B tests", value: 366 },
   { label: "Meta CAPI", value: 167 },
-  { label: "Geo campaigns", value: 75 },
-  { label: "Email flows", value: 73 },
+  { label: "Geo", value: 75 },
+  { label: "Email", value: 73 },
   { label: "Inventory", value: 50 },
 ];
 
@@ -139,7 +138,7 @@ const Divider = () => <div style={{height:"0.5px",background:"var(--color-border
 
 const Quote = ({text, author, role}) => (
   <div style={{borderLeft:`3px solid ${G}`,paddingLeft:20,margin:"28px 0"}}>
-    <div style={{fontSize:17,color:"var(--color-text-primary)",lineHeight:1.65,fontStyle:"italic",marginBottom:10}}>"{text}"</div>
+    <div className="malbon-quote__text" style={{fontSize:17,color:"var(--color-text-primary)",lineHeight:1.65,fontStyle:"italic",marginBottom:10}}>"{text}"</div>
     <div style={{fontSize:13,color:GM,fontWeight:500}}>{author}</div>
     {role && <div style={{fontSize:12,color:"var(--color-text-secondary)"}}>{role}</div>}
   </div>
@@ -147,7 +146,7 @@ const Quote = ({text, author, role}) => (
 
 const KpiCard = ({value, label, sub, accent}) => (
   <div style={{padding:"20px 20px 18px",background:accent?GL:"var(--color-background-secondary)",borderRadius:12,border:accent?`1px solid ${G}30`:"0.5px solid var(--color-border-tertiary)"}}>
-    <div style={{fontSize:30,fontWeight:500,color:accent?G:"var(--color-text-primary)",lineHeight:1.1,marginBottom:5}}>{value}</div>
+    <div className="malbon-kpi-card__value" style={{fontSize:30,fontWeight:500,color:accent?G:"var(--color-text-primary)",lineHeight:1.1,marginBottom:5}}>{value}</div>
     <div style={{fontSize:13,fontWeight:500,color:accent?GM:"var(--color-text-secondary)",marginBottom:2}}>{label}</div>
     {sub && <div style={{fontSize:12,color:accent?GM:"var(--color-text-tertiary)"}}>{sub}</div>}
   </div>
@@ -157,17 +156,17 @@ export default function MalbonCaseStudy() {
   const totalAB = abTests.reduce((s,t) => s+t.uplift,0);
 
   return (
-    <div style={{fontFamily:"var(--font-sans)",color:"var(--color-text-primary)",maxWidth:820,margin:"0 auto"}}>
+    <div className="malbon-case-study" style={{fontFamily:"var(--font-sans)",color:"var(--color-text-primary)"}}>
 
       {/* ─── HERO ─── */}
-      <div style={{background:G,padding:"36px 40px 32px",borderRadius:"12px 12px 0 0"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:16,marginBottom:20}}>
+      <div className="malbon-hero" style={{background:G,padding:"36px 40px 32px"}}>
+        <div className="malbon-hero__top">
           <div>
             <div style={{fontSize:10,fontWeight:500,letterSpacing:"0.14em",textTransform:"uppercase",color:"#7DC9A0",marginBottom:10}}>Case Study · Growth Strategy · June 2026</div>
-            <div style={{fontSize:32,fontWeight:500,color:"#fff",lineHeight:1.15,marginBottom:6}}>Malbon Golf</div>
+            <div className="malbon-hero__title" style={{fontWeight:500,color:"#fff",lineHeight:1.15,marginBottom:6}}>Malbon Golf</div>
             <div style={{fontSize:15,color:"#A8D5BA"}}>Growth, A/B Testing &amp; Pixel Intelligence</div>
           </div>
-          <div style={{textAlign:"right",display:"flex",flexDirection:"column",gap:4}}>
+          <div className="malbon-hero__meta">
             <Pill text="Fashion & Lifestyle" type="gray" />
             <div style={{fontSize:12,color:"#7DC9A0",marginTop:4}}>malbon.com · Shopify · 70+ markets</div>
           </div>
@@ -179,13 +178,13 @@ export default function MalbonCaseStudy() {
           Malbon Golf is the brand that made golf cool. Built on community, cultural authenticity, and product that belongs at the intersection of streetwear and the fairway — this report documents how they grew revenue 71% in a single 90-day period, and the data-driven strategy engineered to compound it.
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginTop:24}}>
+        <div className="malbon-hero__stats">
           {[
             {v:"$16.8M",l:"Revenue — 90 days"},{v:"+71%",l:"Period growth"},
             {v:"2.43M",l:"Sessions"},{v:"$65M",l:"Annualised run rate"},
           ].map((k,i) => (
-            <div key={i} style={{background:"rgba(255,255,255,0.08)",borderRadius:8,padding:"14px 16px",border:"0.5px solid rgba(168,213,186,0.2)"}}>
-              <div style={{fontSize:22,fontWeight:500,color:"#fff",marginBottom:3}}>{k.v}</div>
+            <div key={i} className="malbon-hero__stat-card" style={{background:"rgba(255,255,255,0.08)",borderRadius:8,border:"0.5px solid rgba(168,213,186,0.2)"}}>
+              <div className="malbon-hero__stat-value" style={{fontWeight:500,color:"#fff",marginBottom:3}}>{k.v}</div>
               <div style={{fontSize:12,color:"#A8D5BA"}}>{k.l}</div>
             </div>
           ))}
@@ -193,11 +192,11 @@ export default function MalbonCaseStudy() {
       </div>
 
       {/* ─── BODY ─── */}
-      <div style={{padding:"36px 40px",border:"0.5px solid var(--color-border-tertiary)",borderTop:"none",borderRadius:"0 0 12px 12px"}}>
+      <div className="malbon-body" style={{padding:"36px 40px",border:"0.5px solid var(--color-border-tertiary)",borderTop:"none"}}>
 
         {/* ─── KPI STRIP ─── */}
         <Eyebrow t="Key metrics — 90 days vs prior 90 days" />
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(140px,1fr))",gap:10,marginBottom:40}}>
+        <div className="malbon-kpi-grid">
           <KpiCard value="+71%" label="Revenue growth" sub="$9.8M → $16.8M" accent />
           <KpiCard value="+53%" label="Session growth" sub="1.59M → 2.43M" accent />
           <KpiCard value="$233" label="Avg order value" sub="+3.5% vs prior" />
@@ -208,7 +207,7 @@ export default function MalbonCaseStudy() {
 
         {/* ─── BRAND STORY ─── */}
         <Eyebrow t="The brand" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:10}}>Golf culture, built from the inside out</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:10}}>Golf culture, built from the inside out</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.75,marginBottom:4}}>
           Founded in Los Angeles, Malbon Golf occupies a space no other brand has managed to hold: the precise intersection of golf culture, streetwear sensibility, and genuine community. While legacy golf brands were dressing their customers for boardrooms, Malbon was releasing limited-edition collab hats that sold out in hours, building tournament communities on Discord, and designing polos that showed up at galleries and concerts as often as fairways.
         </div>
@@ -225,10 +224,10 @@ export default function MalbonCaseStudy() {
 
         {/* ─── REVENUE CHART ─── */}
         <Eyebrow t="Revenue performance" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:6}}>71% growth sustained across all three months</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:6}}>71% growth sustained across all three months</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:20}}>Monthly revenue consistently above $5M — an annualised run rate approaching $65M — with every single month outperforming the equivalent prior period by at least 45%.</div>
 
-        <div style={{height:240}}>
+        <div className="malbon-chart malbon-chart--revenue">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={revenueData} barCategoryGap="35%" barGap={4}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border-tertiary)" vertical={false} />
@@ -257,12 +256,12 @@ export default function MalbonCaseStudy() {
         <Divider />
 
         {/* ─── SESSIONS + CHANNELS ─── */}
-        <div style={{display:"grid",gridTemplateColumns:"3fr 2fr",gap:32,marginBottom:8}}>
+        <div className="malbon-two-col">
           <div>
             <Eyebrow t="Traffic momentum" />
-            <div style={{fontSize:18,fontWeight:500,marginBottom:6}}>Baseline sessions 2.5× higher than prior</div>
+            <div className="malbon-subsection-title" style={{fontWeight:500,marginBottom:6}}>Baseline sessions 2.5× higher than prior</div>
             <div style={{fontSize:13,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:16}}>Weeks 5–13 of the current period consistently run 175–264K sessions weekly — against a prior-period baseline of 70–100K for the same calendar stretch.</div>
-            <div style={{height:200}}>
+            <div className="malbon-chart malbon-chart--sessions">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={sessionWeekly}>
                   <defs>
@@ -284,9 +283,9 @@ export default function MalbonCaseStudy() {
 
           <div>
             <Eyebrow t="Channel breakdown" />
-            <div style={{fontSize:18,fontWeight:500,marginBottom:6}}>Direct-driven</div>
+            <div className="malbon-subsection-title" style={{fontWeight:500,marginBottom:6}}>Direct-driven</div>
             <div style={{fontSize:13,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:16}}>74.5% of all sessions arrive without any paid intermediary.</div>
-            <div style={{height:160}}>
+            <div className="malbon-chart malbon-chart--pie">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Tooltip content={<ChannelTooltip />} />
@@ -298,13 +297,13 @@ export default function MalbonCaseStudy() {
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:6,marginTop:8}}>
               {channelData.slice(0,4).map((c,i) => (
-                <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",fontSize:12}}>
-                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                <div key={i} className="malbon-channel-row">
+                  <div className="malbon-channel-row__left">
                     <div style={{width:8,height:8,borderRadius:2,background:CHANNEL_COLORS[i],flexShrink:0}} />
                     <span style={{color:"var(--color-text-secondary)"}}>{c.name}</span>
                   </div>
-                  <div style={{display:"flex",gap:8,alignItems:"center"}}>
-                    <span style={{color:"var(--color-text-tertiary)",fontFamily:"var(--font-mono)"}}>{c.sessions}</span>
+                  <div className="malbon-channel-row__right">
+                    <span className="malbon-channel-sessions" style={{color:"var(--color-text-tertiary)",fontFamily:"var(--font-mono)"}}>{c.sessions}</span>
                     <span style={{fontWeight:500,color:i===0?G:"var(--color-text-primary)",minWidth:36,textAlign:"right"}}>{c.value}%</span>
                   </div>
                 </div>
@@ -317,21 +316,20 @@ export default function MalbonCaseStudy() {
 
         {/* ─── CONVERSION FUNNEL ─── */}
         <Eyebrow t="Conversion funnel — current period" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:6}}>16,015 purchases from 2.43 million sessions</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:6}}>16,015 purchases from 2.43 million sessions</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:20}}>The funnel reflects the scale of Malbon's organic demand — and the systematic opportunity that structured experimentation is designed to unlock at every step.</div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:0,marginBottom:28}}>
+        <div className="malbon-funnel">
           {funnelData.map((f,i) => {
-            const w = [100,60,42,20][i];
             const isLast = i===funnelData.length-1;
             return (
-              <div key={i} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center",padding:"0 8px"}}>
-                <div style={{width:`${w}%`,background:isLast?G:GL,border:`1px solid ${G}30`,borderRadius:6,padding:"14px 0",marginBottom:8,display:"flex",flexDirection:"column",alignItems:"center"}}>
+              <div key={i} className={`malbon-funnel__step malbon-funnel__step--${i}`} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center",padding:"0 8px"}}>
+                <div className="malbon-funnel__bar" style={{background:isLast?G:GL,border:`1px solid ${G}30`,borderRadius:6,padding:"14px 0",marginBottom:8,display:"flex",flexDirection:"column",alignItems:"center"}}>
                   <div style={{fontSize:isLast?18:15,fontWeight:500,color:isLast?"#fff":G}}>{i===0?"2.43M":fmt(f.value)}</div>
                 </div>
                 <div style={{fontSize:12,fontWeight:500,color:"var(--color-text-primary)",marginBottom:2,textAlign:"center"}}>{f.stage}</div>
                 {f.cvr && <div style={{fontSize:11,color:GM,fontFamily:"var(--font-mono)"}}>{f.cvr}</div>}
-                {i < funnelData.length-1 && <div style={{position:"absolute",right:0,top:20,color:"var(--color-border-secondary)",fontSize:16}}>›</div>}
+                {i < funnelData.length-1 && <div className="malbon-funnel__arrow">›</div>}
               </div>
             );
           })}
@@ -340,7 +338,7 @@ export default function MalbonCaseStudy() {
         {/* Landing page CVR */}
         <div style={{fontSize:16,fontWeight:500,marginBottom:6}}>Landing page conversion rates — the opportunity gap</div>
         <div style={{fontSize:13,color:"var(--color-text-secondary)",marginBottom:16,lineHeight:1.7}}>T-shirts convert at 1.23% — 3× the rate of Icons (0.28%). Closing the gap between the lowest and average-performing collection pages is the primary A/B testing lever.</div>
-        <div style={{height:220}}>
+        <div className="malbon-chart malbon-chart--landing">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={[...landingPages].reverse()} layout="vertical" margin={{left:0,right:50}}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border-tertiary)" horizontal={false} />
@@ -359,10 +357,10 @@ export default function MalbonCaseStudy() {
 
         {/* ─── PRODUCTS ─── */}
         <Eyebrow t="Product performance" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:6}}>Eight breakout SKUs, zero dependency on any single product</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:6}}>Eight breakout SKUs, zero dependency on any single product</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:20}}>The top product, the Fairway Polo, generates just 3.7% of total revenue. A healthy long tail with breadth across polo, headwear, footwear, and accessories.</div>
 
-        <div style={{height:250}}>
+        <div className="malbon-chart malbon-chart--products">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={productData} layout="vertical" margin={{left:0,right:60}}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border-tertiary)" horizontal={false} />
@@ -380,7 +378,7 @@ export default function MalbonCaseStudy() {
         <Divider />
 
         {/* ─── CUSTOMER + GEO ─── */}
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:32}}>
+        <div className="malbon-two-col malbon-two-col--equal">
           <div>
             <Eyebrow t="Customer loyalty" />
             <div style={{fontSize:18,fontWeight:500,marginBottom:16}}>A community that comes back</div>
@@ -406,7 +404,7 @@ export default function MalbonCaseStudy() {
             <Eyebrow t="Global footprint — AOV by market" />
             <div style={{fontSize:18,fontWeight:500,marginBottom:8}}>Premium international communities</div>
             <div style={{fontSize:13,color:"var(--color-text-secondary)",marginBottom:16,lineHeight:1.65}}>Japan, UAE, and Hong Kong customers spend 2–2.5× the US average — high-intent communities discovered Malbon organically.</div>
-            <div style={{height:200}}>
+            <div className="malbon-chart malbon-chart--geo">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={geoData} barCategoryGap="30%">
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border-tertiary)" vertical={false} />
@@ -422,9 +420,9 @@ export default function MalbonCaseStudy() {
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:12}}>
               {geoData.filter(g=>g.aov>300).map((g,i) => (
-                <div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",fontSize:12,padding:"6px 10px",background:GL,borderRadius:6}}>
+                <div key={i} className="malbon-geo-highlight" style={{background:GL}}>
                   <span>{g.flag} {g.country}</span>
-                  <span style={{display:"flex",gap:12}}>
+                  <span className="malbon-geo-highlight__stats">
                     <span style={{color:"var(--color-text-secondary)"}}>{g.orders.toLocaleString()} orders</span>
                     <span style={{color:G,fontWeight:500}}>AOV ${g.aov}</span>
                   </span>
@@ -438,7 +436,7 @@ export default function MalbonCaseStudy() {
 
         {/* ─── A/B TESTING ─── */}
         <Eyebrow t="Experimentation programme" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:6}}>8 experiments · ${totalAB}K projected quarterly uplift</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:6}}>8 experiments · ${totalAB}K projected quarterly uplift</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:20}}>Each experiment is chosen because the traffic volume is large enough to reach statistical significance in under two weeks, and the CVR gap between current performance and attainable benchmark represents a quantifiable revenue opportunity.</div>
 
         <Quote
@@ -446,7 +444,7 @@ export default function MalbonCaseStudy() {
           author="Growth Lead, Malbon Golf"
         />
 
-        <div style={{overflowX:"auto",marginBottom:16}}>
+        <div className="malbon-table-wrap">
           <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
             <thead>
               <tr style={{borderBottom:`1.5px solid ${G}25`}}>
@@ -479,19 +477,19 @@ export default function MalbonCaseStudy() {
 
         {/* ─── PIXEL LAYERS ─── */}
         <Eyebrow t="Pixel & identity architecture" />
-        <div style={{fontSize:20,fontWeight:500,marginBottom:6}}>Four-layer customer intelligence — from anonymous to known</div>
+        <div className="malbon-section-title" style={{fontWeight:500,marginBottom:6}}>Four-layer customer intelligence — from anonymous to known</div>
         <div style={{fontSize:14,color:"var(--color-text-secondary)",lineHeight:1.7,marginBottom:24}}>Each layer feeds the next: programmatic audiences become identified subscribers, email behaviour informs segment assignment, segments drive personalised on-site experiences. Every interaction compounds.</div>
 
         <div style={{display:"flex",flexDirection:"column",gap:0}}>
           {pixelLayers.map((l,i) => (
-            <div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr auto",gap:16,padding:"18px 20px",background:i%2===0?"var(--color-background-secondary)":"transparent",borderRadius:i===0?"8px 8px 0 0":i===pixelLayers.length-1?"0 0 8px 8px":"0",border:"0.5px solid var(--color-border-tertiary)",borderTop:i===0?"0.5px solid var(--color-border-tertiary)":"none",alignItems:"flex-start"}}>
+            <div key={i} className="malbon-pixel-row" style={{background:i%2===0?"var(--color-background-secondary)":"transparent",borderRadius:i===0?"8px 8px 0 0":i===pixelLayers.length-1?"0 0 8px 8px":"0",border:"0.5px solid var(--color-border-tertiary)",borderTop:i===0?"0.5px solid var(--color-border-tertiary)":"none"}}>
               <div style={{width:36,height:36,borderRadius:"50%",background:i===0?G:i===1?"var(--color-background-info)":i===2?"var(--color-background-warning)":"var(--color-background-secondary)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:500,color:i===0?"#fff":i===1?"var(--color-text-info)":i===2?"var(--color-text-warning)":"var(--color-text-secondary)",flexShrink:0}}>{l.n}</div>
               <div>
                 <div style={{fontSize:14,fontWeight:500,color:"var(--color-text-primary)",marginBottom:3}}>{l.name}</div>
                 <div style={{fontSize:12,color:"var(--color-text-secondary)",fontFamily:"var(--font-mono)",marginBottom:6}}>{l.tool}</div>
                 <div style={{fontSize:13,color:"var(--color-text-secondary)",lineHeight:1.6}}>{l.detail}</div>
               </div>
-              <div style={{paddingTop:2}}>
+              <div className="malbon-pixel-row__status" style={{paddingTop:2}}>
                 <Pill text={l.status} type={l.status==="Live"?"green":l.status==="In build"?"blue":"gray"} />
               </div>
             </div>
@@ -506,21 +504,21 @@ export default function MalbonCaseStudy() {
         <Divider />
 
         {/* ─── REVENUE OPPORTUNITY ─── */}
-        <div style={{background:G,borderRadius:12,padding:"28px 32px"}}>
+        <div className="malbon-opportunity" style={{background:G}}>
           <Eyebrow t="90-day revenue opportunity" />
-          <div style={{fontSize:24,fontWeight:500,color:"#fff",marginBottom:6}}>$731K incremental revenue per quarter</div>
+          <div className="malbon-opportunity-title" style={{fontWeight:500,color:"#fff",marginBottom:6}}>$731K incremental revenue per quarter</div>
           <div style={{fontSize:14,color:"#A8D5BA",marginBottom:24,lineHeight:1.65}}>
             Without increasing traffic. Without changing the product. The full opportunity is unlocked by making every session work harder, every identified customer feel more seen, and every high-intent moment more precisely served.
           </div>
 
-          <div style={{height:180}}>
+          <div className="malbon-chart malbon-chart--opportunity">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={opportunityData} barCategoryGap="30%">
-                <XAxis dataKey="label" tick={{fontSize:12,fill:"#A8D5BA"}} axisLine={false} tickLine={false} />
-                <YAxis tick={{fontSize:11,fill:"#7DC9A0"}} axisLine={false} tickLine={false} tickFormatter={v=>`$${v}K`} />
-                <Tooltip formatter={v=>[`$${v}K`,"Projected uplift"]} contentStyle={{background:"#0F3D24",border:`0.5px solid ${GM}`,borderRadius:8,color:"#fff",fontSize:13}} />
-                <Bar dataKey="value" fill="rgba(255,255,255,0.2)" stroke="rgba(168,213,186,0.4)" strokeWidth={0.5} radius={[4,4,0,0]}>
-                  <LabelList dataKey="value" position="top" formatter={v=>`$${v}K`} style={{fontSize:12,fill:"#fff",fontWeight:500}} />
+              <BarChart data={opportunityData} barCategoryGap="30%" margin={{ top: 8, right: 8, left: 0, bottom: 44 }}>
+                <XAxis dataKey="label" tick={{ fontSize: 11, fill: "#A8D5BA" }} axisLine={false} tickLine={false} interval={0} height={40} />
+                <YAxis tick={{ fontSize: 11, fill: "#7DC9A0" }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v}K`} width={44} />
+                <Tooltip formatter={(v) => [`$${v}K`, "Projected uplift"]} contentStyle={{ background: "#0F3D24", border: `0.5px solid ${GM}`, borderRadius: 8, color: "#fff", fontSize: 13 }} />
+                <Bar dataKey="value" fill="rgba(255,255,255,0.2)" stroke="rgba(168,213,186,0.4)" strokeWidth={0.5} radius={[4, 4, 0, 0]}>
+                  <LabelList dataKey="value" position="insideTop" offset={8} formatter={(v) => `$${v}K`} style={{ fontSize: 11, fill: "#fff", fontWeight: 500 }} />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
@@ -535,7 +533,7 @@ export default function MalbonCaseStudy() {
       </div>
 
       {/* ─── FOOTER ─── */}
-      <div style={{background:"#0D1117",padding:"18px 40px",borderRadius:"0 0 12px 12px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}>
+      <div className="malbon-footer" style={{background:"#0D1117",padding:"18px 40px",borderRadius:"0 0 12px 12px"}}>
         <div style={{fontSize:12,color:"#4B5563"}}>Malbon Golf · Growth & Experimentation Case Study</div>
         <div style={{fontSize:12,color:"#4B5563"}}>Shopify Analytics · Live site audit · June 2026</div>
       </div>
