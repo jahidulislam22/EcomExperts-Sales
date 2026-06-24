@@ -15,7 +15,7 @@ export default function HomePage() {
       <ul className="project-list">
         {projects.map((project, index) => (
           <li key={project.slug}>
-            <Link to={`/${project.slug}/case-study`} className="project-card">
+            <Link to={`/case-study/${project.slug}`} className="project-card">
               <span className="project-card__index">{String(index + 1).padStart(2, "0")}</span>
               <div className="project-card__content">
                 <h2>{project.name}</h2>
