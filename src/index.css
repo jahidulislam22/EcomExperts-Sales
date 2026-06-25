@@ -802,3 +802,380 @@ a {
     border-radius: 0 0 8px 8px;
   }
 }
+
+/* Legends case study */
+.legends-case-study {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.legends-hero {
+  border-radius: 12px 12px 0 0;
+}
+
+.legends-body {
+  border-radius: 0 0 12px 12px;
+}
+
+.legends-hero__title {
+  font-size: clamp(1.625rem, 6vw, 2rem);
+}
+
+.legends-hero__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.legends-hero__meta {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.legends-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.legends-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.legends-quote {
+  border-left: 3px solid #1B3A5C;
+  padding-left: 20px;
+  margin: 24px 0;
+}
+
+.legends-channel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  background: var(--color-background-secondary);
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.legends-chart-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.legends-chart-legend--left {
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.legends-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.legends-inv-wrap {
+  border-radius: 10px;
+  border: 0.5px solid var(--color-border-tertiary);
+  overflow: hidden;
+}
+
+.legends-inv-banner {
+  background: #FEF2F2;
+  padding: 10px 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-bottom: 0.5px solid #FECACA;
+}
+
+.legends-inv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.legends-inv-row:last-child {
+  border-bottom: none;
+}
+
+.legends-geo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.legends-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 0.5px solid var(--color-border-tertiary);
+}
+
+.legends-opp {
+  background: #1B3A5C;
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin-top: 8px;
+}
+
+.legends-chart--opportunity {
+  height: 175px;
+}
+
+.legends-funnel--flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 20px 0 28px;
+}
+
+.legends-funnel--flex .legends-funnel__step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 6px;
+  position: relative;
+}
+
+.legends-funnel--flex .legends-funnel__bar {
+  width: 100%;
+  border-radius: 6px;
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.legends-funnel--flex .legends-funnel__arrow {
+  position: absolute;
+  right: -10px;
+  top: 16px;
+  font-size: 18px;
+  color: #ccc;
+  z-index: 1;
+}
+
+.legends-two-col {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 32px;
+  margin-bottom: 8px;
+}
+
+.legends-two-col--equal {
+  grid-template-columns: 1fr 1fr;
+}
+
+.legends-funnel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.legends-funnel__bar {
+  width: 100%;
+}
+
+.legends-funnel__step--0 .legends-funnel__bar { width: 100%; }
+.legends-funnel__step--1 .legends-funnel__bar { width: 60%; }
+.legends-funnel__step--2 .legends-funnel__bar { width: 42%; }
+.legends-funnel__step--3 .legends-funnel__bar { width: 20%; }
+
+.legends-funnel__arrow {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  color: var(--color-border-secondary);
+  font-size: 16px;
+}
+
+.legends-chart {
+  width: 100%;
+}
+
+.legends-chart--revenue { height: 260px; }
+.legends-chart--sessions { height: 200px; }
+.legends-chart--pie { height: 160px; }
+.legends-chart--landing { height: 220px; }
+.legends-chart--products { height: 250px; }
+.legends-chart--geo { height: 200px; }
+.legends-chart--cohort { height: 220px; }
+
+.legends-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legends-opportunity-title {
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .legends-hero {
+    padding: 28px 24px 24px !important;
+  }
+
+  .legends-body {
+    padding: 28px 24px !important;
+  }
+
+  .legends-hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .legends-two-col,
+  .legends-two-col--equal {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .legends-funnel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .legends-funnel__arrow {
+    display: none;
+  }
+
+  .legends-funnel__step--0 .legends-funnel__bar,
+  .legends-funnel__step--1 .legends-funnel__bar,
+  .legends-funnel__step--2 .legends-funnel__bar,
+  .legends-funnel__step--3 .legends-funnel__bar {
+    width: 100%;
+  }
+
+  .legends-chart--landing { height: 280px; }
+  .legends-chart--products { height: 320px; }
+
+  .legends-footer {
+    padding: 18px 24px !important;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .legends-hero {
+    padding: 24px 16px 20px !important;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .legends-body {
+    padding: 24px 16px !important;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .legends-hero__top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legends-hero__meta {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .legends-hero__stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .legends-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .legends-kpi__value {
+    font-size: 24px !important;
+  }
+
+  .legends-funnel {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .legends-funnel__bar {
+    padding: 12px 0 !important;
+  }
+
+  .legends-case-study .recharts-label-list {
+    display: none;
+  }
+
+  .legends-chart {
+    overflow-x: auto;
+  }
+
+  .legends-chart--revenue { height: 220px; }
+  .legends-chart--sessions,
+  .legends-chart--pie { height: 180px; }
+  .legends-chart--landing { height: 300px; }
+  .legends-chart--products { height: 360px; }
+  .legends-chart--geo { height: 220px; }
+  .legends-chart--cohort { height: 240px; }
+  .legends-chart--opportunity { height: 200px; }
+
+  .legends-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .legends-funnel--flex {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .legends-funnel--flex .legends-funnel__step {
+    flex: 1 1 45%;
+  }
+
+  .legends-funnel--flex .legends-funnel__arrow {
+    display: none;
+  }
+
+  .legends-opp {
+    padding: 24px 20px;
+  }
+
+  .legends-channel-sessions {
+    display: none;
+  }
+
+  .legends-footer {
+    padding: 16px !important;
+    border-radius: 0 0 8px 8px;
+  }
+}

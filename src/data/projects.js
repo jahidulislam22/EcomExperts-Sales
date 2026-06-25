@@ -13,6 +13,13 @@ export const projects = [
     description: "47-store Canadian pet franchise — custom IMS, migration, and reporting on Shopify POS.",
     hasCaseStudy: true,
   },
+  {
+    slug: "legends",
+    name: "Legends",
+    tagline: "Analytics, CRO & Conversion Growth",
+    description: "90-day performance analysis — CVR lift, social acquisition, Luka line dominance, and inventory risk.",
+    hasCaseStudy: true,
+  },
 ];
 
 export function getProjectBySlug(slug) {

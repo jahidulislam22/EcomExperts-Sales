@@ -2,11 +2,13 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { getProjectBySlug } from "../data/projects";
 import MalbonCaseStudy from "./MalbonCaseStudy";
 import PetPlanetCaseStudy from "./PetPlanetCaseStudy";
+import LegendsCaseStudy from "./LegendsCaseStudy";
 import GenericCaseStudy from "./GenericCaseStudy";
 
 const caseStudyComponents = {
   malbon: MalbonCaseStudy,
   "pet-planet": PetPlanetCaseStudy,
+  legends: LegendsCaseStudy,
 };
 
 export default function CaseStudyPage() {
